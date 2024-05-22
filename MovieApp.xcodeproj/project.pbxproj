@@ -44,6 +44,9 @@
 		DC5F88572BFDDDA600C7657E /* MovieAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5F885B2BFDDDA600C7657E /* MovieAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppUITests.swift; sourceTree = "<group>"; };
 		DC5F885D2BFDDDA600C7657E /* MovieAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DC6C5D0B2BFDEE0900968B0B /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		DC6C5D0C2BFDEE1100968B0B /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		DC6C5D0D2BFDEE8C00968B0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 		DC5F88342BFDDDA500C7657E = {
 			isa = PBXGroup;
 			children = (
+				DC6C5D0A2BFDEDEB00968B0B /* Configuration */,
+				DC6C5D042BFDECDD00968B0B /* Networking */,
 				DC5F883F2BFDDDA500C7657E /* MovieApp */,
 				DC5F88502BFDDDA600C7657E /* MovieAppTests */,
 				DC5F885A2BFDDDA600C7657E /* MovieAppUITests */,
@@ -94,6 +99,7 @@
 		DC5F883F2BFDDDA500C7657E /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
+				DC6C5D0D2BFDEE8C00968B0B /* Info.plist */,
 				DC5F88402BFDDDA500C7657E /* MovieAppApp.swift */,
 				DC5F88422BFDDDA500C7657E /* ContentView.swift */,
 				DC5F88442BFDDDA600C7657E /* Assets.xcassets */,
@@ -125,6 +131,62 @@
 				DC5F885D2BFDDDA600C7657E /* MovieAppUITestsLaunchTests.swift */,
 			);
 			path = MovieAppUITests;
+			sourceTree = "<group>";
+		};
+		DC6C5D042BFDECDD00968B0B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DC6C5D052BFDECF700968B0B /* Networkable */,
+				DC6C5D062BFDECFD00968B0B /* Extensions */,
+				DC6C5D072BFDED0500968B0B /* Base */,
+				DC6C5D082BFDED0A00968B0B /* Request */,
+				DC6C5D092BFDED0F00968B0B /* Response */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		DC6C5D052BFDECF700968B0B /* Networkable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networkable;
+			sourceTree = "<group>";
+		};
+		DC6C5D062BFDECFD00968B0B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DC6C5D072BFDED0500968B0B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		DC6C5D082BFDED0A00968B0B /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		DC6C5D092BFDED0F00968B0B /* Response */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		DC6C5D0A2BFDEDEB00968B0B /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				DC6C5D0B2BFDEE0900968B0B /* Production.xcconfig */,
+				DC6C5D0C2BFDEE1100968B0B /* Development.xcconfig */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,6 +487,7 @@
 				DEVELOPMENT_TEAM = M9BG9J9LFY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +517,7 @@
 				DEVELOPMENT_TEAM = M9BG9J9LFY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
