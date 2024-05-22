@@ -14,6 +14,17 @@
 		DC5F88522BFDDDA600C7657E /* MovieAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5F88512BFDDDA600C7657E /* MovieAppTests.swift */; };
 		DC5F885C2BFDDDA600C7657E /* MovieAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5F885B2BFDDDA600C7657E /* MovieAppUITests.swift */; };
 		DC5F885E2BFDDDA600C7657E /* MovieAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5F885D2BFDDDA600C7657E /* MovieAppUITestsLaunchTests.swift */; };
+		DC6C5D0F2BFDEFD500968B0B /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C5D0E2BFDEFD500968B0B /* Networkable.swift */; };
+		DC6C5D112BFDEFEF00968B0B /* Networkable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C5D102BFDEFEF00968B0B /* Networkable+Extensions.swift */; };
+		DC6C5D132BFDF00C00968B0B /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C5D122BFDF00C00968B0B /* Bundle+Extensions.swift */; };
+		DC6C5D152BFDF01D00968B0B /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C5D142BFDF01D00968B0B /* NSError.swift */; };
+		DC6C5D172BFDF03500968B0B /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C5D162BFDF03500968B0B /* URL+Extensions.swift */; };
+		DC6C5D192BFDF32200968B0B /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C5D182BFDF32200968B0B /* RequestMethod.swift */; };
+		DC6C5D1B2BFDF33400968B0B /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C5D1A2BFDF33400968B0B /* ContentType.swift */; };
+		DC6C5D1D2BFDF34500968B0B /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C5D1C2BFDF34500968B0B /* Response.swift */; };
+		DC6C5D1F2BFDF35E00968B0B /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C5D1E2BFDF35E00968B0B /* Movie.swift */; };
+		DC6C5D212BFDF37200968B0B /* GetMoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C5D202BFDF37200968B0B /* GetMoviesResponse.swift */; };
+		DC6C5D232BFDF38C00968B0B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C5D222BFDF38C00968B0B /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +58,17 @@
 		DC6C5D0B2BFDEE0900968B0B /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		DC6C5D0C2BFDEE1100968B0B /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		DC6C5D0D2BFDEE8C00968B0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DC6C5D0E2BFDEFD500968B0B /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
+		DC6C5D102BFDEFEF00968B0B /* Networkable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Networkable+Extensions.swift"; sourceTree = "<group>"; };
+		DC6C5D122BFDF00C00968B0B /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		DC6C5D142BFDF01D00968B0B /* NSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
+		DC6C5D162BFDF03500968B0B /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		DC6C5D182BFDF32200968B0B /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		DC6C5D1A2BFDF33400968B0B /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
+		DC6C5D1C2BFDF34500968B0B /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		DC6C5D1E2BFDF35E00968B0B /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		DC6C5D202BFDF37200968B0B /* GetMoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoviesResponse.swift; sourceTree = "<group>"; };
+		DC6C5D222BFDF38C00968B0B /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +163,7 @@
 				DC6C5D072BFDED0500968B0B /* Base */,
 				DC6C5D082BFDED0A00968B0B /* Request */,
 				DC6C5D092BFDED0F00968B0B /* Response */,
+				DC6C5D222BFDF38C00968B0B /* API.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -148,6 +171,8 @@
 		DC6C5D052BFDECF700968B0B /* Networkable */ = {
 			isa = PBXGroup;
 			children = (
+				DC6C5D0E2BFDEFD500968B0B /* Networkable.swift */,
+				DC6C5D102BFDEFEF00968B0B /* Networkable+Extensions.swift */,
 			);
 			path = Networkable;
 			sourceTree = "<group>";
@@ -155,6 +180,9 @@
 		DC6C5D062BFDECFD00968B0B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DC6C5D122BFDF00C00968B0B /* Bundle+Extensions.swift */,
+				DC6C5D142BFDF01D00968B0B /* NSError.swift */,
+				DC6C5D162BFDF03500968B0B /* URL+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -162,6 +190,9 @@
 		DC6C5D072BFDED0500968B0B /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				DC6C5D182BFDF32200968B0B /* RequestMethod.swift */,
+				DC6C5D1A2BFDF33400968B0B /* ContentType.swift */,
+				DC6C5D1C2BFDF34500968B0B /* Response.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -169,6 +200,7 @@
 		DC6C5D082BFDED0A00968B0B /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				DC6C5D1E2BFDF35E00968B0B /* Movie.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -176,6 +208,7 @@
 		DC6C5D092BFDED0F00968B0B /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				DC6C5D202BFDF37200968B0B /* GetMoviesResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -319,8 +352,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC6C5D212BFDF37200968B0B /* GetMoviesResponse.swift in Sources */,
+				DC6C5D192BFDF32200968B0B /* RequestMethod.swift in Sources */,
+				DC6C5D112BFDEFEF00968B0B /* Networkable+Extensions.swift in Sources */,
+				DC6C5D172BFDF03500968B0B /* URL+Extensions.swift in Sources */,
+				DC6C5D132BFDF00C00968B0B /* Bundle+Extensions.swift in Sources */,
+				DC6C5D1D2BFDF34500968B0B /* Response.swift in Sources */,
 				DC5F88432BFDDDA500C7657E /* ContentView.swift in Sources */,
+				DC6C5D0F2BFDEFD500968B0B /* Networkable.swift in Sources */,
+				DC6C5D232BFDF38C00968B0B /* API.swift in Sources */,
 				DC5F88412BFDDDA500C7657E /* MovieAppApp.swift in Sources */,
+				DC6C5D152BFDF01D00968B0B /* NSError.swift in Sources */,
+				DC6C5D1F2BFDF35E00968B0B /* Movie.swift in Sources */,
+				DC6C5D1B2BFDF33400968B0B /* ContentType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
