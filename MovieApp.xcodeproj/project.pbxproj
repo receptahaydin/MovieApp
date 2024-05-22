@@ -25,6 +25,7 @@
 		DC6C5D1F2BFDF35E00968B0B /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C5D1E2BFDF35E00968B0B /* Movie.swift */; };
 		DC6C5D212BFDF37200968B0B /* GetMoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C5D202BFDF37200968B0B /* GetMoviesResponse.swift */; };
 		DC6C5D232BFDF38C00968B0B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C5D222BFDF38C00968B0B /* API.swift */; };
+		DC6C5D252BFDF50900968B0B /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C5D242BFDF50900968B0B /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		DC6C5D1E2BFDF35E00968B0B /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		DC6C5D202BFDF37200968B0B /* GetMoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoviesResponse.swift; sourceTree = "<group>"; };
 		DC6C5D222BFDF38C00968B0B /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		DC6C5D242BFDF50900968B0B /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				DC6C5D0D2BFDEE8C00968B0B /* Info.plist */,
 				DC5F88402BFDDDA500C7657E /* MovieAppApp.swift */,
 				DC5F88422BFDDDA500C7657E /* ContentView.swift */,
+				DC6C5D242BFDF50900968B0B /* ContentViewModel.swift */,
 				DC5F88442BFDDDA600C7657E /* Assets.xcassets */,
 				DC5F88462BFDDDA600C7657E /* Preview Content */,
 			);
@@ -362,6 +365,7 @@
 				DC6C5D0F2BFDEFD500968B0B /* Networkable.swift in Sources */,
 				DC6C5D232BFDF38C00968B0B /* API.swift in Sources */,
 				DC5F88412BFDDDA500C7657E /* MovieAppApp.swift in Sources */,
+				DC6C5D252BFDF50900968B0B /* ContentViewModel.swift in Sources */,
 				DC6C5D152BFDF01D00968B0B /* NSError.swift in Sources */,
 				DC6C5D1F2BFDF35E00968B0B /* Movie.swift in Sources */,
 				DC6C5D1B2BFDF33400968B0B /* ContentType.swift in Sources */,
@@ -403,6 +407,7 @@
 /* Begin XCBuildConfiguration section */
 		DC5F885F2BFDDDA600C7657E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC6C5D0C2BFDEE1100968B0B /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -466,6 +471,7 @@
 		};
 		DC5F88602BFDDDA600C7657E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC6C5D0B2BFDEE0900968B0B /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;

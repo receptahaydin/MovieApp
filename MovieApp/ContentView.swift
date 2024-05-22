@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var viewModel = ContentView.ViewModel()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            List($viewModel.movies, id: \.title) { movie in
+                HStack {
+                    Text(movie.wrappedValue.title ?? "")
+                }
+            }
+            .listStyle(.plain)
         }
         .padding()
+        .task {
+            await viewModel.getMovies()
+        }
     }
 }
 
