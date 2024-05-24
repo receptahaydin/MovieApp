@@ -7,10 +7,21 @@
 
 import Foundation
 
-public struct MovieResponse: Decodable {
-    public let title: String?
+struct TopRatedResponse: Decodable {
     
-    public init(title: String?) {
-        self.title = title
+    let id: Int?
+    let genreIDS: [Int]?
+    let popularity: Double?
+    let posterPath: String?
+    let title: String?
+    let voteAverage: Double?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case genreIDS = "genre_ids"
+        case popularity
+        case posterPath = "poster_path"
+        case title
+        case voteAverage = "vote_average"
     }
 }
