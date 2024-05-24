@@ -1,20 +1,13 @@
 //
-//  ContentView.swift
+//  FilmCardView.swift
 //  MovieApp
 //
-//  Created by Recep Taha Aydın on 22.05.2024.
+//  Created by Recep Taha Aydın on 24.05.2024.
 //
 
 import SwiftUI
 
-struct ContentView: View {
-    
-    @StateObject var viewModel = ContentView.ViewModel()
-    
-    let columns: [GridItem] = [GridItem(.flexible()),
-                               GridItem(.flexible()),
-                               GridItem(.flexible())]
-    
+struct MovieCardView: View {
     var body: some View {
         VStack {
             HStack {
@@ -59,10 +52,9 @@ struct ContentView: View {
                 }
             }
         }
-        
     }
 }
 
 #Preview {
-    ContentView()
+    MovieCardView()
 }

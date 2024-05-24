@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TopRatedResponse: Decodable {
+struct MovieResponse: Decodable {
     
     let id: Int?
     let genreIDS: [Int]?

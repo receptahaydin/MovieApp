@@ -7,13 +7,13 @@
 
 import Foundation
 
-extension ContentView {
+extension MoviesView {
     final class ViewModel: ObservableObject {
         
-        @Published var movies: [TopRatedResponse] = []
+        @Published var movies: [MovieResponse] = []
         
         func getMovies() async {
-            let result = await API.Movie.getMovie.fetch(requestModel: [TopRatedResponse].self)
+            let result = await API.Movie.getMovie.fetch(requestModel: [MovieResponse].self)
             
             switch result {
             case let .success(response):
