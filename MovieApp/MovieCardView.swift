@@ -21,26 +21,7 @@ struct MovieCardView: View {
                         .frame(width: 164, height: 250)
                     
                     HStack(spacing: 2) {
-                        Image(systemName: "star.fill")
-                            .resizable()
-                            .renderingMode(.original)
-                            .frame(width: 14, height: 14)
-                        Image(systemName: "star.fill")
-                            .resizable()
-                            .renderingMode(.original)
-                            .frame(width: 14, height: 14)
-                        Image(systemName: "star.fill")
-                            .resizable()
-                            .renderingMode(.original)
-                            .frame(width: 14, height: 14)
-                        Image(systemName: "star.fill")
-                            .resizable()
-                            .renderingMode(.original)
-                            .frame(width: 14, height: 14)
-                        Image(systemName: "star.fill")
-                            .resizable()
-                            .renderingMode(.original)
-                            .frame(width: 14, height: 14)
+                        StarsRatingView(rating: movie.voteAverage / 2)
                     }
                     .padding(.top, 5)
          
@@ -61,5 +42,5 @@ struct MovieCardView: View {
 }
 
 #Preview {
-    MovieCardView(movie: MovieResponse(id: 1, genreIDS: [0], popularity: 1.0, posterPath: "", title: "Jack Reacher", voteAverage: 2.0))
+    MovieCardView(movie: MovieResponse(id: 1, genreIDS: [0], popularity: 1.0, posterPath: "", title: "Jack Reacher", voteAverage: 9))
 }

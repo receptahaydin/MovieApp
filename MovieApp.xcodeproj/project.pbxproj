@@ -30,6 +30,7 @@
 		DC9686A62C012F5B00D0D549 /* MovieTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9686A52C012F5B00D0D549 /* MovieTabView.swift */; };
 		DC9686A82C012FD400D0D549 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9686A72C012FD400D0D549 /* FavoritesView.swift */; };
 		DC9686AA2C01300500D0D549 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9686A92C01300500D0D549 /* ProfileView.swift */; };
+		DCA02C5E2C0278560073E790 /* StarsRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA02C5D2C0278560073E790 /* StarsRatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		DC9686A52C012F5B00D0D549 /* MovieTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTabView.swift; sourceTree = "<group>"; };
 		DC9686A72C012FD400D0D549 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		DC9686A92C01300500D0D549 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		DCA02C5D2C0278560073E790 /* StarsRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsRatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				DC9686A52C012F5B00D0D549 /* MovieTabView.swift */,
 				DC9686A72C012FD400D0D549 /* FavoritesView.swift */,
 				DC9686A92C01300500D0D549 /* ProfileView.swift */,
+				DCA02C5D2C0278560073E790 /* StarsRatingView.swift */,
 			);
 			path = MovieApp;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				DC6C5D0F2BFDEFD500968B0B /* Networkable.swift in Sources */,
 				DC6C5D232BFDF38C00968B0B /* API.swift in Sources */,
 				DC9686AA2C01300500D0D549 /* ProfileView.swift in Sources */,
+				DCA02C5E2C0278560073E790 /* StarsRatingView.swift in Sources */,
 				DC5F88412BFDDDA500C7657E /* MovieAppApp.swift in Sources */,
 				DC6C5D252BFDF50900968B0B /* ContentViewModel.swift in Sources */,
 				DC9686A42C012C6900D0D549 /* MovieCardView.swift in Sources */,
