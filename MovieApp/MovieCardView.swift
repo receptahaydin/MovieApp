@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MovieCardView: View {
+    
+    let movie: MovieResponse
+    
     var body: some View {
         VStack {
             HStack {
@@ -15,7 +18,7 @@ struct MovieCardView: View {
                     Image("testPoster")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 250)
+                        .frame(width: 164, height: 250)
                     
                     HStack(spacing: 2) {
                         Image(systemName: "star.fill")
@@ -41,9 +44,11 @@ struct MovieCardView: View {
                     }
                     .padding(.top, 5)
          
-                    Text("John Wick 3")
-                        .font(.system(size: 16))
+                    Text(movie.title)
+                        .font(.callout)
                         .fontWeight(.medium)
+                        .lineLimit(1)
+                        .frame(width: 164, alignment: .leading)
 
                     Text("Crime • 2hr 10m")
                         .font(.system(size: 12))
@@ -56,5 +61,5 @@ struct MovieCardView: View {
 }
 
 #Preview {
-    MovieCardView()
+    MovieCardView(movie: MovieResponse(id: 1, genreIDS: [0], popularity: 1.0, posterPath: "", title: "Jack Reacher", voteAverage: 2.0))
 }

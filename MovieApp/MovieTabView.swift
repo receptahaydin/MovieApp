@@ -18,7 +18,6 @@ struct MovieTabView: View {
             
             ProfileView()
                 .tabItem { Label("Profile", systemImage: "person") }
-
         }
         .accentColor(.movieBlue)
     }

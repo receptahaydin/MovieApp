@@ -9,12 +9,12 @@ import Foundation
 
 struct MovieResponse: Decodable {
     
-    let id: Int?
-    let genreIDS: [Int]?
-    let popularity: Double?
-    let posterPath: String?
-    let title: String?
-    let voteAverage: Double?
+    let id: Int
+    let genreIDS: [Int]
+    let popularity: Double
+    let posterPath: String
+    let title: String
+    let voteAverage: Double
     
     enum CodingKeys: String, CodingKey {
         case id
