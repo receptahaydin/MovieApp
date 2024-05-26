@@ -14,7 +14,7 @@ extension Networkable {
         httpMethod: RequestMethod = .get
     ) async -> URLRequest {
         var url = API.prepareUrl(withPath: path)
-        url.append(queryItems: [.init(name: "api_key", value: "a9682a1bcb1c6843474a121144fd9071")])
+        url.append(queryItems: [.init(name: "api_key", value: Bundle.main.apiKey)])
         var request = await prepareRequest(url: url,
                                            method: httpMethod,
                                            contentType: ContentType.json)
@@ -27,7 +27,7 @@ extension Networkable {
         httpMethod: RequestMethod = .post
     ) async -> URLRequest {
         var url = API.prepareUrl(withPath: path)
-        url.append(queryItems: [.init(name: "api_key", value: "a9682a1bcb1c6843474a121144fd9071")])
+        url.append(queryItems: [.init(name: "api_key", value: Bundle.main.apiKey)])
         var request = await prepareRequest(url: url,
                                            method: httpMethod,
                                            contentType: ContentType.json)
