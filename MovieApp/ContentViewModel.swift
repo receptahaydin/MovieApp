@@ -17,7 +17,9 @@ extension MoviesView {
             
             switch result {
             case let .success(response):
-                movies = response
+                DispatchQueue.main.async {
+                    self.movies = response
+                }
             case let .failure(error):
                 print(error.localizedDescription)
             }
