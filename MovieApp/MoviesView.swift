@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MoviesView: View {
     
-    @StateObject var viewModel = MoviesView.ViewModel()
+    @StateObject var viewModel = MoviesViewModel()
     @State private var selectedIndex = 0
     
     let columns: [GridItem] = [GridItem(.flexible()),
@@ -28,7 +28,9 @@ struct MoviesView: View {
                 
                 LazyVGrid(columns: columns) {
                     ForEach(viewModel.movies, id: \.id) { movie in
-                        MovieCardView(movie: movie)
+                        NavigationLink(destination: MovieDetailView(movie: movie)) {
+                            MovieCardView(movie: movie)
+                        }
                     }
                 }
                 .padding(.horizontal, 10)
