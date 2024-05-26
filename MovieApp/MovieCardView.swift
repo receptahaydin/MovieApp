@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct MovieCardView: View {
     
@@ -14,14 +15,13 @@ struct MovieCardView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             if let url = URL(string: "http://image.tmdb.org/t/p/w500\(movie.posterPath)") {
-                AsyncImage(url: url) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                } placeholder: {
-                    ProgressView()
-                }
-                .frame(width: 164, height: 250)
+                KFImage(url)
+                    .placeholder {
+                        ProgressView()
+                    }
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 250)
             }
             
             HStack(spacing: 2) {
