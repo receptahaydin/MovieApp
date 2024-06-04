@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC1E54F52C0FA9620016FEDB /* DetailViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1E54F42C0FA9620016FEDB /* DetailViewButton.swift */; };
+		DC1E54F72C0FA9EF0016FEDB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC1E54F62C0FA9EF0016FEDB /* Colors.xcassets */; };
+		DC1E54F92C0FAB630016FEDB /* CastCrewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1E54F82C0FAB630016FEDB /* CastCrewCell.swift */; };
 		DC5F88412BFDDDA500C7657E /* MovieAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5F88402BFDDDA500C7657E /* MovieAppApp.swift */; };
 		DC5F88432BFDDDA500C7657E /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5F88422BFDDDA500C7657E /* MoviesView.swift */; };
 		DC5F88452BFDDDA600C7657E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC5F88442BFDDDA600C7657E /* Assets.xcassets */; };
@@ -54,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC1E54F42C0FA9620016FEDB /* DetailViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewButton.swift; sourceTree = "<group>"; };
+		DC1E54F62C0FA9EF0016FEDB /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		DC1E54F82C0FAB630016FEDB /* CastCrewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCrewCell.swift; sourceTree = "<group>"; };
 		DC5F883D2BFDDDA500C7657E /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5F88402BFDDDA500C7657E /* MovieAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppApp.swift; sourceTree = "<group>"; };
 		DC5F88422BFDDDA500C7657E /* MoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesView.swift; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 				DC6C5D0D2BFDEE8C00968B0B /* Info.plist */,
 				DC5F88402BFDDDA500C7657E /* MovieAppApp.swift */,
 				DC5F88442BFDDDA600C7657E /* Assets.xcassets */,
+				DC1E54F62C0FA9EF0016FEDB /* Colors.xcassets */,
 				DC5F88462BFDDDA600C7657E /* Preview Content */,
 			);
 			path = MovieApp;
@@ -280,6 +287,8 @@
 			children = (
 				DC9686A32C012C6900D0D549 /* MovieCardView.swift */,
 				DCA02C5D2C0278560073E790 /* StarsRatingView.swift */,
+				DC1E54F42C0FA9620016FEDB /* DetailViewButton.swift */,
+				DC1E54F82C0FAB630016FEDB /* CastCrewCell.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -454,6 +463,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC1E54F72C0FA9EF0016FEDB /* Colors.xcassets in Resources */,
 				DC5F88482BFDDDA600C7657E /* Preview Assets.xcassets in Resources */,
 				DC5F88452BFDDDA600C7657E /* Assets.xcassets in Resources */,
 			);
@@ -481,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC6C5D192BFDF32200968B0B /* RequestMethod.swift in Sources */,
+				DC1E54F52C0FA9620016FEDB /* DetailViewButton.swift in Sources */,
 				DC6C5D112BFDEFEF00968B0B /* Networkable+Extensions.swift in Sources */,
 				DC6C5D172BFDF03500968B0B /* URL+Extensions.swift in Sources */,
 				DC9686A82C012FD400D0D549 /* FavoritesView.swift in Sources */,
@@ -491,6 +502,7 @@
 				DC6C5D232BFDF38C00968B0B /* API.swift in Sources */,
 				DCB6B96F2C03CF330015F621 /* MovieDetailView.swift in Sources */,
 				DC9686AA2C01300500D0D549 /* ProfileView.swift in Sources */,
+				DC1E54F92C0FAB630016FEDB /* CastCrewCell.swift in Sources */,
 				DC8D067F2C0EFCB400FA23EE /* Color+Extensions.swift in Sources */,
 				DCA02C5E2C0278560073E790 /* StarsRatingView.swift in Sources */,
 				DC5F88412BFDDDA500C7657E /* MovieAppApp.swift in Sources */,
