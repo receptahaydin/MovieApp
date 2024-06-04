@@ -18,13 +18,7 @@ struct MoviesView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                Picker("Movie Category", selection: $selectedIndex) {
-                    Text("Now Showing").tag(0)
-                    Text("Coming Soon").tag(1)
-                }
-                .pickerStyle(.segmented)
-                .colorMultiply(.red)
-                .padding()
+                segmentedPicker
                 
                 LazyVGrid(columns: columns) {
                     ForEach(viewModel.movies, id: \.id) { movie in
@@ -34,25 +28,36 @@ struct MoviesView: View {
                     }
                 }
                 .padding(.horizontal, 10)
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Text("Movies")
-                            .font(.title)
-                    }
-                    
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Image(systemName: "magnifyingglass")
-                    }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("Movies")
+                        .font(.title)
                 }
-                .onAppear {
-                    Task {
-                        await viewModel.getMovies()
-                    }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Image(systemName: "magnifyingglass")
                 }
             }
-            
-            
+            .onAppear {
+                Task {
+                    await viewModel.getMovies()
+                }
+            }
         }
+    }
+}
+
+// MARK: Views
+private extension MoviesView {
+    var segmentedPicker: some View {
+        Picker("Movie Category", selection: $selectedIndex) {
+            Text("Now Showing").tag(0)
+            Text("Coming Soon").tag(1)
+        }
+        .pickerStyle(.segmented)
+        .colorMultiply(.red)
+        .padding()
     }
 }
 
