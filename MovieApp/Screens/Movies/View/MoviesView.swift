@@ -45,6 +45,7 @@ struct MoviesView: View {
                 }
             }
         }
+        .tint(.white)
     }
 }
 

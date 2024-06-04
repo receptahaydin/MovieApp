@@ -10,6 +10,7 @@ import SwiftUI
 struct StarsRatingView: View {
     
     var rating: Double
+    var widthHeight: Double = 14
     
     var body: some View {
         HStack(spacing: 2) {
@@ -34,12 +35,12 @@ struct StarsRatingView: View {
                         )
                     }
                 }
-                .frame(width: 14, height: 14)
+                .frame(width: widthHeight, height: widthHeight)
             }
         }
     }
 }
 
 #Preview {
-    StarsRatingView(rating: 3.4)
+    StarsRatingView(rating: 3.4, widthHeight: 14)
 }
