@@ -12,7 +12,7 @@ public protocol Networkable {
 }
 
 public extension Networkable {
-    func fetch<T: Decodable>(requestModel model: T.Type) async -> Result<T, Error> {
+    func fetch<T: Decodable>(responseModel model: T.Type) async -> Result<T, Error> {
         do {
             let (data, response) = try await URLSession.shared.data(for: request(), delegate: nil)
             

@@ -13,7 +13,7 @@ final class MoviesViewModel: ObservableObject {
     @Published var movies: [TopRatedMovie] = []
     
     func getMovies() async {
-        let result = await API.Movie.topRated.fetch(requestModel: [TopRatedMovie].self)
+        let result = await API.Movie.topRated.fetch(responseModel: [TopRatedMovie].self)
         
         switch result {
         case let .success(response):

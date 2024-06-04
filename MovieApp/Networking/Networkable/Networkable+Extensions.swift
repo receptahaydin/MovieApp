@@ -21,19 +21,6 @@ extension Networkable {
         return request
     }
     
-    func postRequest<T: Decodable> (
-        data: T,
-        path: String,
-        httpMethod: RequestMethod = .post
-    ) async -> URLRequest {
-        var url = API.prepareUrl(withPath: path)
-        url.append(queryItems: [.init(name: "api_key", value: Bundle.main.apiKey)])
-        let request = await prepareRequest(url: url,
-                                           method: httpMethod,
-                                           contentType: ContentType.json)
-        return request
-    }
-    
     private func prepareRequest(
         url: URL,
         method: RequestMethod,
