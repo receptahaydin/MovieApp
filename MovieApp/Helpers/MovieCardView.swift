@@ -10,7 +10,7 @@ import Kingfisher
 
 struct MovieCardView: View {
     
-    let movie: MovieResponse
+    let movie: TopRatedResponse
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -45,5 +45,5 @@ struct MovieCardView: View {
 }
 
 #Preview {
-    MovieCardView(movie: MovieResponse(id: 1, genreIDS: [0], popularity: 1.0, posterPath: "", title: "Jack Reacher", voteAverage: 9))
+    MovieCardView(movie: TopRatedResponse(id: 1, genreIDS: [0], popularity: 1.0, posterPath: "", title: "Jack Reacher", voteAverage: 9))
 }

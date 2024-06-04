@@ -16,7 +16,7 @@ struct MoviesView: View {
                                GridItem(.flexible())]
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 Picker("Movie Category", selection: $selectedIndex) {
                     Text("Now Showing").tag(0)
