@@ -7,18 +7,17 @@
 
 import Foundation
 
+@MainActor
 final class MoviesViewModel: ObservableObject {
     
-    @Published var movies: [MovieResponse] = []
+    @Published var movies: [TopRatedMovie] = []
     
     func getMovies() async {
-        let result = await API.Movie.getMovie.fetch(requestModel: [MovieResponse].self)
+        let result = await API.Movie.topRated.fetch(requestModel: [TopRatedMovie].self)
         
         switch result {
         case let .success(response):
-            DispatchQueue.main.async {
-                self.movies = response
-            }
+            self.movies = response
         case let .failure(error):
             print(error.localizedDescription)
         }

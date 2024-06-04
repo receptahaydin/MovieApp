@@ -10,7 +10,7 @@ import Kingfisher
 
 struct MovieDetailView: View {
     
-    let movie: MovieResponse
+    let movie: TopRatedMovie
     
     var body: some View {
         if let url = URL(string: "http://image.tmdb.org/t/p/w500\(movie.posterPath)") {
@@ -26,5 +26,5 @@ struct MovieDetailView: View {
 }
 
 #Preview {
-    MovieDetailView(movie: MovieResponse(id: 1, genreIDS: [0], popularity: 1.0, posterPath: "", title: "Jack Reacher", voteAverage: 9))
+    MovieDetailView(movie: TopRatedMovie(id: 1, genreIDS: [0], popularity: 1.0, posterPath: "", title: "Jack Reacher", voteAverage: 9))
 }
