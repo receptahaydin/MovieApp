@@ -15,7 +15,7 @@ extension Networkable {
     ) async -> URLRequest {
         var url = API.prepareUrl(withPath: path)
         url.append(queryItems: [.init(name: "api_key", value: Bundle.main.apiKey)])
-        var request = await prepareRequest(url: url,
+        let request = await prepareRequest(url: url,
                                            method: httpMethod,
                                            contentType: ContentType.json)
         return request
@@ -28,7 +28,7 @@ extension Networkable {
     ) async -> URLRequest {
         var url = API.prepareUrl(withPath: path)
         url.append(queryItems: [.init(name: "api_key", value: Bundle.main.apiKey)])
-        var request = await prepareRequest(url: url,
+        let request = await prepareRequest(url: url,
                                            method: httpMethod,
                                            contentType: ContentType.json)
         return request
