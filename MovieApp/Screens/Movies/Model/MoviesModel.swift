@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct TopRatedMovies: Decodable {
+    let results: [TopRatedMovie]
+}
+
 struct TopRatedMovie: Decodable {
     let id: Int
     let genreIDS: [Int]
@@ -14,13 +18,12 @@ struct TopRatedMovie: Decodable {
     let posterPath: String
     let title: String
     let voteAverage: Double
+    let overview: String
     
     enum CodingKeys: String, CodingKey {
-        case id
+        case id, popularity, title, overview
         case genreIDS = "genre_ids"
-        case popularity
         case posterPath = "poster_path"
-        case title
         case voteAverage = "vote_average"
     }
 }
