@@ -10,121 +10,138 @@ import Kingfisher
 
 struct MovieDetailView: View {
     
-    let movie: TopRatedMovie
+    var movie: TopRatedMovie
+    @StateObject var viewModel = MovieDetailViewModel()
+    @State var lineLimit = true
     
     var body: some View {
-        NavigationStack {
-            GeometryReader { geo in
-                ScrollView {
-                    VStack {
-                        Image("testPoster")
+        GeometryReader { geo in
+            ScrollView {
+                VStack {
+                    if let url = URL(string: "http://image.tmdb.org/t/p/w500\(movie.posterPath)") {
+                        KFImage(url)
+                            .placeholder {
+                                ProgressView()
+                            }
                             .resizable()
                             .scaledToFill()
                             .frame(height: geo.size.height / 3, alignment: .top)
                             .clipped()
                             .blur(radius: 2.5, opaque: true)
-                        
-                        Image("testPoster")
+                    }
+                    
+                    if let url = URL(string: "http://image.tmdb.org/t/p/w500\(movie.posterPath)") {
+                        KFImage(url)
+                            .placeholder {
+                                ProgressView()
+                            }
                             .resizable()
                             .scaledToFit()
                             .frame(height: geo.size.height / 3)
                             .padding(.top, -geo.size.height / 5.5)
+                    }
+                    
+                    VStack(spacing: 10) {
+                        Text(movie.title)
+                            .font(.title2)
+                            .fontWeight(.semibold)
                         
-                        VStack(spacing: 10) {
-                            Text("John Wick 3: Parabellum")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                            
-                            Text("2hr 10m | R")
-                                .font(.callout)
-                                .foregroundStyle(.secondary)
-                            
-                            Text("Action, Crime, Thriller")
-                                .font(.callout)
-                                .foregroundStyle(.secondary)
+                        Text("2hr 10m | R")
+                            .font(.callout)
+                            .foregroundStyle(.secondary)
+                        
+                        Text("Action, Crime, Thriller")
+                            .font(.callout)
+                            .foregroundStyle(.secondary)
+                    }
+                    .multilineTextAlignment(.center)
+                    .padding()
+                    
+                    HStack {
+                        let roundedVoteAverage = String(format: "%.1f", movie.voteAverage / 2)
+                        Text("\(roundedVoteAverage)/5")
+                            .font(.title)
+                        
+                        StarsRatingView(rating: Double(roundedVoteAverage) ?? 0, widthHeight: 20)
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 15) {
+                        Text("Synopsis")
+                            .font(.headline)
+                        
+                        Text(movie.overview)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(lineLimit ? 4 : nil)
+                    }
+                    .padding()
+                    
+                    Button {
+                        withAnimation {
+                            lineLimit.toggle()
                         }
-                        .multilineTextAlignment(.center)
-                        .padding()
-                        
+                    } label: {
+                        DetailViewButton(title: lineLimit ? "Show More" : "Show Less")
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 15) {
                         HStack {
-                            Text("4.6/5")
-                                .font(.title)
-                            
-                            StarsRatingView(rating: 5, widthHeight: 20)
-                        }
-                        
-                        VStack(alignment: .leading, spacing: 15) {
-                            Text("Synopsis")
+                            Text("Cast & Crew")
                                 .font(.headline)
                             
-                            Text("In this third installment of the adrenaline-fueled action franchise, super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting...")
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
-                        }
-                        .padding()
-                        
-                        Button {
+                            Spacer()
                             
-                        } label: {
-                            DetailViewButton(title: "Show More")
+                            Button {
+                                
+                            } label: {
+                                DetailViewButton(title: "View All")
+                            }
                         }
                         
-                        VStack(alignment: .leading, spacing: 15) {
-                            HStack {
-                                Text("Cast & Crew")
-                                    .font(.headline)
-                                
-                                Spacer()
-                                
-                                Button {
-                                    
-                                } label: {
-                                    DetailViewButton(title: "View All")
-                                }
-                            }
-                            
-                            ForEach(0..<5, id: \.self) { _ in
-                                CastCrewCell()
-                            }
-                        }
-                        .padding()
-                        
-                        VStack {
-                            HStack {
-                                Text("Photos")
-                                    .font(.headline)
-                                
-                                Spacer()
-                                
-                                Button {
-                                    
-                                } label: {
-                                    DetailViewButton(title: "View All")
-                                }
-                            }
-                            .padding()
-                            
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                HStack {
-                                    ForEach(0..<7, id: \.self) { _ in
-                                        Image(.moviePhoto)
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 104, height: 72)
-                                    }
-                                }
-                            }
-                            .padding(.leading)
+                        ForEach(viewModel.cast, id: \.self) { cast in
+                            CastCrewCell(cast: cast)
                         }
                     }
+                    .padding()
+                    
+                    VStack {
+                        HStack {
+                            Text("Photos")
+                                .font(.headline)
+                            
+                            Spacer()
+                            
+                            Button {
+                                
+                            } label: {
+                                DetailViewButton(title: "View All")
+                            }
+                        }
+                        .padding()
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(0..<7, id: \.self) { _ in
+                                    Image(.moviePhoto)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 104, height: 72)
+                                }
+                            }
+                        }
+                        .padding(.leading)
+                    }
                 }
-                .ignoresSafeArea(edges: .top)
             }
-            .toolbarRole(.editor)
+            .ignoresSafeArea(edges: .top)
         }
+        .onAppear {
+            Task { await viewModel.getCasts(movie: movie) }
+        }
+        .toolbarRole(.editor)
     }
 }
 
 #Preview {
-    MovieDetailView(movie: TopRatedMovie(id: 1, genreIDS: [0], popularity: 1.0, posterPath: "", title: "Jack Reacher", voteAverage: 9))
+    MovieDetailView(movie: TopRatedMovie(id: 1, genreIDS: [], popularity: 1, posterPath: "", title: "", voteAverage: 1, overview: ""))
 }
