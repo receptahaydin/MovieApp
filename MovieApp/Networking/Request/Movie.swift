@@ -12,6 +12,7 @@ public extension API {
         case topRated
         case upComing
         case credits(movieID: Int)
+        case images(movieID: Int)
         
         public func request() async -> URLRequest {
             switch self {
@@ -21,6 +22,8 @@ public extension API {
                 await getRequest(path: "3/movie/upcoming")
             case .credits(let movieID):
                 await getRequest(path: "3/movie/\(movieID)/credits")
+            case .images(let movieID):
+                await getRequest(path: "3/movie/\(movieID)/images")
             }
         }
     }
