@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Top Rated Movies
 struct TopRatedMovies: Decodable {
     let results: [TopRatedMovie]
 }

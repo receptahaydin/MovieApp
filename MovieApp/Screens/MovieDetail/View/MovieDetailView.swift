@@ -13,6 +13,7 @@ struct MovieDetailView: View {
     var movie: TopRatedMovie
     @StateObject var viewModel = MovieDetailViewModel()
     @State var lineLimit = true
+    @State var isFavorite = false
     
     var body: some View {
         GeometryReader { geo in
@@ -91,14 +92,12 @@ struct MovieDetailView: View {
                             
                             Spacer()
                             
-                            Button {
-                                
-                            } label: {
+                            NavigationLink(destination: CastCrewView(casts: viewModel.cast)) {
                                 DetailViewButton(title: "View All")
                             }
                         }
                         
-                        ForEach(viewModel.cast, id: \.self) { cast in
+                        ForEach(viewModel.cast.prefix(5), id: \.self) { cast in
                             CastCrewCell(cast: cast)
                         }
                     }
@@ -111,21 +110,33 @@ struct MovieDetailView: View {
                             
                             Spacer()
                             
-                            Button {
-                                
-                            } label: {
+                            NavigationLink(destination: PhotosView(images: viewModel.images)) {
                                 DetailViewButton(title: "View All")
                             }
                         }
-                        .padding()
+                        .padding([.horizontal, .top])
                         
                         ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(0..<7, id: \.self) { _ in
-                                    Image(.moviePhoto)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 104, height: 72)
+                            HStack(spacing: 8) {
+                                ForEach(viewModel.images.prefix(5), id: \.self) { image in
+                                    if let imagePath = image.filePath, let url = URL(string: "http://image.tmdb.org/t/p/w500\(imagePath)") {
+                                        AsyncImage(url: url) { image in
+                                            image
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 104, height: 72)
+                                        } placeholder: {
+                                            Image(systemName: "photo")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 104, height: 72)
+                                        }
+                                    } else {
+                                        Image(systemName: "photo")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 104, height: 72)
+                                    }
                                 }
                             }
                         }
@@ -136,7 +147,16 @@ struct MovieDetailView: View {
             .ignoresSafeArea(edges: .top)
         }
         .onAppear {
-            Task { await viewModel.getCasts(movie: movie) }
+            Task {
+                async let castsResult: () = viewModel.getCasts(movie: movie)
+                async let imagesResult: () = viewModel.getImages(movie: movie)
+                
+                await castsResult
+                await imagesResult
+            }
+        }
+        .toolbar {
+            FavoriteAnimationView(isLiked: $isFavorite)
         }
         .toolbarRole(.editor)
     }
