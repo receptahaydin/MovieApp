@@ -21,11 +21,11 @@ struct FavoriteAnimationView: View {
                         .foregroundColor(.white)
                     
                     Image(systemName: "heart")
-                        .foregroundColor(.pink)
+                        .foregroundColor(.red)
                         .animation(Animation.interpolatingSpring(stiffness: 170, damping: 10).delay(0.25))
                     
                     Image(systemName: "heart.fill")
-                        .foregroundColor(.pink)
+                        .foregroundColor(.red)
                         .scaleEffect(scaleHeart)
                         .animation(Animation.interpolatingSpring(stiffness: 170, damping: 10).delay(0.5))
                 }
