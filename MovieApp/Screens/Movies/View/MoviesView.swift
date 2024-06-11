@@ -23,7 +23,7 @@ struct MoviesView: View {
                 LazyVGrid(columns: columns) {
                     ForEach(viewModel.movies, id: \.id) { movie in
                         NavigationLink(destination: MovieDetailView(movie: movie)) {
-                            MovieCardView(movie: movie)
+                            MovieCardView(movie: movie, genre: genreName(for: movie.genreIDS[0]) ?? "")
                         }
                     }
                 }
@@ -41,11 +41,22 @@ struct MoviesView: View {
             }
             .onAppear {
                 Task {
-                    await viewModel.getMovies()
+                    async let moviesResult: () = viewModel.getMovies()
+                    async let genresResult: () = viewModel.getGenres()
+                    
+                    await moviesResult
+                    await genresResult
                 }
             }
         }
         .tint(.label)
+    }
+    
+    private func genreName(for genreID: Int) -> String? {
+        if let genre = viewModel.genres.first(where: { $0.id == genreID }) {
+            return genre.name
+        }
+        return nil
     }
 }
 

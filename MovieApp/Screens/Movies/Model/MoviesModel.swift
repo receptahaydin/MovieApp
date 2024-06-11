@@ -28,3 +28,14 @@ struct TopRatedMovie: Decodable {
         case voteAverage = "vote_average"
     }
 }
+
+// MARK: - Genres
+struct Genres: Decodable {
+    let genres: [Genre]?
+}
+
+// MARK: - Genre
+struct Genre: Decodable {
+    let id: Int?
+    let name: String?
+}

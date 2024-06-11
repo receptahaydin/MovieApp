@@ -47,11 +47,11 @@ struct MovieDetailView: View {
                             .font(.title2)
                             .fontWeight(.semibold)
                         
-                        Text("2hr 10m | R")
+                        Text(convertToHoursMinutes(minutes: viewModel.details?.runtime ?? 0))
                             .font(.callout)
                             .foregroundStyle(.secondary)
                         
-                        Text("Action, Crime, Thriller")
+                        Text(genreNames(genre: viewModel.details?.genres ?? []))
                             .font(.callout)
                             .foregroundStyle(.secondary)
                     }
@@ -150,15 +150,30 @@ struct MovieDetailView: View {
             Task {
                 async let castsResult: () = viewModel.getCasts(movie: movie)
                 async let imagesResult: () = viewModel.getImages(movie: movie)
+                async let details: () = viewModel.getDetails(movie: movie)
                 
                 await castsResult
                 await imagesResult
+                await details
             }
         }
         .toolbar {
             FavoriteAnimationView(isLiked: $isFavorite)
         }
         .toolbarRole(.editor)
+    }
+    
+    private func convertToHoursMinutes(minutes: Int) -> String {
+        let hours = minutes / 60
+        let minutes = (minutes % 60)
+        
+        return "\(hours)hr \(minutes)m"
+    }
+    
+    private func genreNames(genre: [Genre]) -> String {
+        let genreNames = genre.compactMap { $0.name }
+        let result = genreNames.joined(separator: ", ")
+        return result
     }
 }
 

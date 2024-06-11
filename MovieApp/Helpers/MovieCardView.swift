@@ -11,6 +11,7 @@ import Kingfisher
 struct MovieCardView: View {
     
     let movie: TopRatedMovie
+    let genre: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -35,7 +36,7 @@ struct MovieCardView: View {
                 .lineLimit(1)
                 .foregroundStyle(Color.label)
             
-            Text("Crime • 2hr 10m")
+            Text(genre)
                 .font(.system(size: 12))
                 .fontWeight(.medium)
                 .foregroundStyle(.gray)
@@ -46,5 +47,5 @@ struct MovieCardView: View {
 }
 
 #Preview {
-    MovieCardView(movie: TopRatedMovie(id: 1, genreIDS: [0], popularity: 1.0, posterPath: "", title: "Jack Reacher", voteAverage: 9, overview: ""))
+    MovieCardView(movie: TopRatedMovie(id: 1, genreIDS: [0], popularity: 1.0, posterPath: "", title: "Jack Reacher", voteAverage: 9, overview: ""), genre: "Crime")
 }
