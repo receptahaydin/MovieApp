@@ -11,6 +11,7 @@ import Kingfisher
 struct MovieDetailView: View {
     
     var movie: TopRatedMovie
+    let details: MovieDetails?
     @StateObject var viewModel = MovieDetailViewModel()
     @State var lineLimit = true
     @State var isFavorite = false
@@ -47,11 +48,11 @@ struct MovieDetailView: View {
                             .font(.title2)
                             .fontWeight(.semibold)
                         
-                        Text(convertToHoursMinutes(minutes: viewModel.details?.runtime ?? 0))
+                        Text(convertToHoursMinutes(minutes: details?.runtime ?? 0))
                             .font(.callout)
                             .foregroundStyle(.secondary)
                         
-                        Text(genreNames(genre: viewModel.details?.genres ?? []))
+                        Text(genreNames(genre: details?.genres ?? []))
                             .font(.callout)
                             .foregroundStyle(.secondary)
                     }
@@ -150,11 +151,9 @@ struct MovieDetailView: View {
             Task {
                 async let castsResult: () = viewModel.getCasts(movie: movie)
                 async let imagesResult: () = viewModel.getImages(movie: movie)
-                async let details: () = viewModel.getDetails(movie: movie)
                 
                 await castsResult
                 await imagesResult
-                await details
             }
         }
         .toolbar {
@@ -178,5 +177,5 @@ struct MovieDetailView: View {
 }
 
 #Preview {
-    MovieDetailView(movie: TopRatedMovie(id: 1, genreIDS: [], popularity: 1, posterPath: "", title: "", voteAverage: 1, overview: ""))
+    MovieDetailView(movie: TopRatedMovie(id: 0, posterPath: "", title: "", voteAverage: 0, overview: ""), details: MovieDetails(genres: [], runtime: 0))
 }

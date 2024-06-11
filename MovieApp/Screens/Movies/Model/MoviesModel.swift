@@ -14,19 +14,22 @@ struct TopRatedMovies: Decodable {
 
 struct TopRatedMovie: Decodable {
     let id: Int
-    let genreIDS: [Int]
-    let popularity: Double
     let posterPath: String
     let title: String
     let voteAverage: Double
     let overview: String
     
     enum CodingKeys: String, CodingKey {
-        case id, popularity, title, overview
-        case genreIDS = "genre_ids"
+        case id, title, overview
         case posterPath = "poster_path"
         case voteAverage = "vote_average"
     }
+}
+
+// MARK: - Details
+struct MovieDetails: Decodable {
+    let genres: [Genre]?
+    let runtime: Int?
 }
 
 // MARK: - Genres
@@ -36,6 +39,5 @@ struct Genres: Decodable {
 
 // MARK: - Genre
 struct Genre: Decodable {
-    let id: Int?
     let name: String?
 }

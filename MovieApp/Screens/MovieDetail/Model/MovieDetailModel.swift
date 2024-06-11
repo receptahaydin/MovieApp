@@ -35,9 +35,3 @@ struct Backdrop: Decodable, Hashable {
         case filePath = "file_path"
     }
 }
-
-// MARK: - Details
-struct MovieDetails: Decodable {
-    let genres: [Genre]?
-    let runtime: Int?
-}

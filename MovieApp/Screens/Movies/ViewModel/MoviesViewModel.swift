@@ -10,8 +10,8 @@ import Foundation
 final class MoviesViewModel: ObservableObject {
     
     @Published var movies: [TopRatedMovie] = []
-    @Published var genres: [Genre] = []
-    
+    @Published var movieDetails: [Int: MovieDetails] = [:]
+
     func getMovies() async {
         let result = await API.Movie.topRated.fetch(responseModel: TopRatedMovies.self)
         
@@ -25,13 +25,13 @@ final class MoviesViewModel: ObservableObject {
         }
     }
     
-    func getGenres() async {
-        let result = await API.Movie.genres.fetch(responseModel: Genres.self)
+    func getDetails(movie: TopRatedMovie) async {
+        let result = await API.Movie.movieDetails(movieID: movie.id).fetch(responseModel: MovieDetails.self)
         
         DispatchQueue.main.async {
             switch result {
             case let .success(response):
-                self.genres = response.genres ?? []
+                self.movieDetails[movie.id] = response
             case let .failure(error):
                 print(error.localizedDescription)
             }
