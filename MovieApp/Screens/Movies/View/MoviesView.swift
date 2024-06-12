@@ -22,11 +22,15 @@ struct MoviesView: View {
                 
                 LazyVGrid(columns: columns) {
                     ForEach(viewModel.movies, id: \.id) { movie in
-                        NavigationLink(destination: MovieDetailView(movie: movie, details: viewModel.movieDetails[movie.id])) {
-                            MovieCardView(movie: movie, details: viewModel.movieDetails[movie.id])
+                        NavigationLink(destination: MovieDetailView(movie: movie, 
+                                                                    details: viewModel.movieDetails[movie.id])) {
+                            MovieCardView(movie: movie, 
+                                          details: viewModel.movieDetails[movie.id],
+                                          certification: getCertification(for: viewModel.releaseDates[movie.id] ?? ReleaseDateResult(results: [])))
                                 .task {
                                     if viewModel.movieDetails[movie.id] == nil {
                                         await viewModel.getDetails(movie: movie)
+                                        await viewModel.getReleaseDates(movie: movie)
                                     }
                                 }
                         }
@@ -51,6 +55,22 @@ struct MoviesView: View {
             }
         }
         .tint(.label)
+    }
+    
+    private func getCertification(for results: ReleaseDateResult) -> String? {
+        guard let results = results.results else {
+            return nil
+        }
+        
+        for result in results {
+            if result.iso3166_1 == "US", let releaseDates = result.releaseDates {
+                if let certification = releaseDates.first?.certification {
+                    return certification
+                }
+            }
+        }
+        
+        return nil
     }
 }
 

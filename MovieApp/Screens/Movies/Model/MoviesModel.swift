@@ -32,12 +32,25 @@ struct MovieDetails: Decodable {
     let runtime: Int?
 }
 
-// MARK: - Genres
-struct Genres: Decodable {
-    let genres: [Genre]?
-}
-
-// MARK: - Genre
 struct Genre: Decodable {
     let name: String?
+}
+
+// MARK: - Release Date Result
+struct ReleaseDateResult: Decodable {
+    let results: [DateResult]?
+}
+
+struct DateResult: Decodable {
+    let iso3166_1: String?
+    let releaseDates: [ReleaseDateElement]?
+
+    enum CodingKeys: String, CodingKey {
+        case iso3166_1 = "iso_3166_1"
+        case releaseDates = "release_dates"
+    }
+}
+
+struct ReleaseDateElement: Decodable {
+    let certification: String?
 }
