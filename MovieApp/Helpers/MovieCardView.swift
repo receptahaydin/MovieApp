@@ -12,6 +12,7 @@ struct MovieCardView: View {
     
     let movie: TopRatedMovie
     let details: MovieDetails?
+    let certification: String?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -36,12 +37,24 @@ struct MovieCardView: View {
                 .lineLimit(1)
                 .foregroundStyle(Color.label)
             
-            if let genreName = details?.genres?.first?.name {
-                Text(genreName)
-                    .font(.system(size: 12))
-                    .fontWeight(.medium)
-                    .foregroundStyle(.gray)
+            HStack(alignment: .bottom, spacing: 4) {
+                Text("\(details?.genres?.first?.name ?? "")")
+                
+                if let runtime = details?.runtime?.toHoursMinutes(), !runtime.isEmpty {
+                    Text("• \(runtime)")
+                }
+                
+                if let certification = certification, !certification.isEmpty {
+                    Text("|")
+                        .font(.system(size: 13))
+                    
+                    Text(certification)
+                }
             }
+            .lineLimit(1)
+            .font(.system(size: 12))
+            .fontWeight(.medium)
+            .foregroundStyle(.gray)
         }
         .frame(width: 164)
         .padding()
@@ -49,5 +62,5 @@ struct MovieCardView: View {
 }
 
 #Preview {
-    MovieCardView(movie: TopRatedMovie(id: 0, posterPath: "", title: "", voteAverage: 1, overview: ""), details: MovieDetails(genres: [], runtime: 0))
+    MovieCardView(movie: TopRatedMovie(id: 0, posterPath: "", title: "", voteAverage: 1, overview: ""), details: MovieDetails(genres: [], runtime: 0), certification: "")
 }

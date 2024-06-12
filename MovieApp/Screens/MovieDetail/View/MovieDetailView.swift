@@ -48,7 +48,7 @@ struct MovieDetailView: View {
                             .font(.title2)
                             .fontWeight(.semibold)
                         
-                        Text(convertToHoursMinutes(minutes: details?.runtime ?? 0))
+                        Text(details?.runtime?.toHoursMinutes() ?? "")
                             .font(.callout)
                             .foregroundStyle(.secondary)
                         
@@ -160,13 +160,6 @@ struct MovieDetailView: View {
             FavoriteAnimationView(isLiked: $isFavorite)
         }
         .toolbarRole(.editor)
-    }
-    
-    private func convertToHoursMinutes(minutes: Int) -> String {
-        let hours = minutes / 60
-        let minutes = (minutes % 60)
-        
-        return "\(hours)hr \(minutes)m"
     }
     
     private func genreNames(genre: [Genre]) -> String {
