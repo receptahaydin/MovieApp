@@ -44,11 +44,6 @@ struct MoviesView: View {
                     Image(systemName: "magnifyingglass")
                 }
             }
-            .onAppear {
-                Task {
-                    await viewModel.getMovies()
-                }
-            }
         }
         .tint(.label)
     }
@@ -68,6 +63,24 @@ struct MoviesView: View {
         
         return nil
     }
+    
+    private func loadMovies() {
+        Task {
+            if selectedIndex == 0 {
+                if !viewModel.nowPlayingMovies.isEmpty {
+                    viewModel.movies = viewModel.nowPlayingMovies
+                } else {
+                    await viewModel.getMovies(type: .nowPlaying)
+                }
+            } else {
+                if !viewModel.upComingMovies.isEmpty {
+                    viewModel.movies = viewModel.upComingMovies
+                } else {
+                    await viewModel.getMovies(type: .upComing)
+                }
+            }
+        }
+    }
 }
 
 // MARK: Views
@@ -78,8 +91,14 @@ private extension MoviesView {
             Text("Coming Soon").tag(1)
         }
         .pickerStyle(.segmented)
-        .colorMultiply(.red)
+        .colorMultiply(.movieBlue)
         .padding()
+        .onChange(of: selectedIndex) {
+            loadMovies()
+        }
+        .onAppear {
+            loadMovies()
+        }
     }
 }
 

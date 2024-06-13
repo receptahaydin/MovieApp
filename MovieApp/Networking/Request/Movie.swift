@@ -9,8 +9,8 @@ import Foundation
 
 public extension API {
     enum Movie: Networkable {
-        case topRated
         case upComing
+        case nowPlaying
         case genres
         case credits(movieID: Int)
         case images(movieID: Int)
@@ -19,10 +19,10 @@ public extension API {
         
         public func request() async -> URLRequest {
             switch self {
-            case .topRated:
-                await getRequest(path: "3/movie/top_rated")
             case .upComing:
                 await getRequest(path: "3/movie/upcoming")
+            case .nowPlaying:
+                await getRequest(path: "3/movie/now_playing")
             case .genres:
                 await getRequest(path: "3/genre/movie/list")
             case .credits(let movieID):
