@@ -9,12 +9,19 @@ import SwiftUI
 import Kingfisher
 
 struct MovieDetailView: View {
-    
+    var movies: [Movie]
     var movie: TopRatedMovie
     let details: MovieDetails?
     @StateObject var viewModel = MovieDetailViewModel()
     @State var lineLimit = true
     @State var isFavorite = false
+    
+    init(movie: TopRatedMovie, details: MovieDetails?, movies: [Movie]) {
+        self.movie = movie
+        self.details = details
+        self.movies = movies
+        _isFavorite = State(initialValue: movies.contains(where: { $0.id == movie.id }))
+    }
     
     var body: some View {
         GeometryReader { geo in
@@ -155,9 +162,10 @@ struct MovieDetailView: View {
                 await castsResult
                 await imagesResult
             }
+            
         }
         .toolbar {
-            FavoriteAnimationView(isLiked: $isFavorite)
+            FavoriteAnimationView(isLiked: $isFavorite, movieID: movie.id)
         }
         .toolbarRole(.editor)
     }
@@ -170,5 +178,5 @@ struct MovieDetailView: View {
 }
 
 #Preview {
-    MovieDetailView(movie: TopRatedMovie(id: 0, posterPath: "", title: "", voteAverage: 0, overview: ""), details: MovieDetails(genres: [], runtime: 0))
+    MovieDetailView(movie: TopRatedMovie(id: 0, posterPath: "", title: "", voteAverage: 0, overview: ""), details: MovieDetails(genres: [], runtime: 0), movies: [])
 }
