@@ -12,8 +12,8 @@ final class MovieDetailViewModel: ObservableObject {
     @Published var cast: [Cast] = []
     @Published var images: [Backdrop] = []
     
-    func getCasts(movie: TopRatedMovie) async {
-        let result = await API.Movie.credits(movieID: movie.id).fetch(responseModel: Casts.self)
+    func getCasts(movieID: Int) async {
+        let result = await API.Movie.credits(movieID: movieID).fetch(responseModel: Casts.self)
         
         DispatchQueue.main.async {
             switch result {
@@ -27,8 +27,8 @@ final class MovieDetailViewModel: ObservableObject {
         }
     }
     
-    func getImages(movie: TopRatedMovie) async {
-        let result = await API.Movie.images(movieID: movie.id).fetch(responseModel: Backdrops.self)
+    func getImages(movieID: Int) async {
+        let result = await API.Movie.images(movieID: movieID).fetch(responseModel: Backdrops.self)
         
         DispatchQueue.main.async {
             switch result {

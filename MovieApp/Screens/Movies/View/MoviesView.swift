@@ -9,7 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct MoviesView: View {
-    @Query var movies: [Movie]
     @StateObject var viewModel = MoviesViewModel()
     @State private var selectedIndex = 0
     
@@ -23,18 +22,13 @@ struct MoviesView: View {
                 
                 LazyVGrid(columns: columns) {
                     ForEach(viewModel.movies, id: \.id) { movie in
-                        NavigationLink(destination: MovieDetailView(movie: movie, 
-                                                                    details: viewModel.movieDetails[movie.id],
-                                                                    movies: self.movies)) {
-                            MovieCardView(movie: movie,
-                                          details: viewModel.movieDetails[movie.id],
-                                          certification: getCertification(for: viewModel.releaseDates[movie.id] ?? ReleaseDateResult(results: [])))
-                                .task {
-                                    if viewModel.movieDetails[movie.id] == nil {
-                                        await viewModel.getDetails(movie: movie)
-                                        await viewModel.getReleaseDates(movie: movie)
-                                    }
-                                }
+                        MovieCardView(details: viewModel.movieDetails[movie.id],
+                                      certification: getCertification(for: viewModel.releaseDates[movie.id] ?? ReleaseDateResult(results: [])))
+                        .task {
+                            if viewModel.movieDetails[movie.id] == nil {
+                                await viewModel.getDetails(movieID: movie.id)
+                                await viewModel.getReleaseDates(movieID: movie.id)
+                            }
                         }
                     }
                 }

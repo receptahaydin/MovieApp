@@ -10,24 +10,24 @@ import Kingfisher
 
 struct MovieDetailView: View {
     var movies: [Movie]
-    var movie: TopRatedMovie
+    var movieID: Int
     let details: MovieDetails?
     @StateObject var viewModel = MovieDetailViewModel()
     @State var lineLimit = true
     @State var isFavorite = false
     
-    init(movie: TopRatedMovie, details: MovieDetails?, movies: [Movie]) {
-        self.movie = movie
+    init(movieID: Int, details: MovieDetails?, movies: [Movie]) {
+        self.movieID = movieID
         self.details = details
         self.movies = movies
-        _isFavorite = State(initialValue: movies.contains(where: { $0.id == movie.id }))
+        _isFavorite = State(initialValue: movies.contains(where: { $0.id == movieID }))
     }
     
     var body: some View {
         GeometryReader { geo in
             ScrollView {
                 VStack {
-                    if let url = URL(string: "http://image.tmdb.org/t/p/w500\(movie.posterPath)") {
+                    if let url = URL(string: "http://image.tmdb.org/t/p/w500\(details?.posterPath ?? "")") {
                         KFImage(url)
                             .placeholder {
                                 ProgressView()
@@ -39,7 +39,7 @@ struct MovieDetailView: View {
                             .blur(radius: 2.5, opaque: true)
                     }
                     
-                    if let url = URL(string: "http://image.tmdb.org/t/p/w500\(movie.posterPath)") {
+                    if let url = URL(string: "http://image.tmdb.org/t/p/w500\(details?.posterPath ?? "")") {
                         KFImage(url)
                             .placeholder {
                                 ProgressView()
@@ -51,7 +51,7 @@ struct MovieDetailView: View {
                     }
                     
                     VStack(spacing: 10) {
-                        Text(movie.title)
+                        Text(details?.title ?? "")
                             .font(.title2)
                             .fontWeight(.semibold)
                         
@@ -67,7 +67,7 @@ struct MovieDetailView: View {
                     .padding()
                     
                     HStack {
-                        let roundedVoteAverage = String(format: "%.1f", movie.voteAverage / 2)
+                        let roundedVoteAverage = String(format: "%.1f", (details?.voteAverage ?? 0) / 2)
                         Text("\(roundedVoteAverage)/5")
                             .font(.title)
                         
@@ -78,7 +78,7 @@ struct MovieDetailView: View {
                         Text("Synopsis")
                             .font(.headline)
                         
-                        Text(movie.overview)
+                        Text(details?.overview ?? "")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                             .lineLimit(lineLimit ? 4 : nil)
@@ -156,8 +156,8 @@ struct MovieDetailView: View {
         }
         .onAppear {
             Task {
-                async let castsResult: () = viewModel.getCasts(movie: movie)
-                async let imagesResult: () = viewModel.getImages(movie: movie)
+                async let castsResult: () = viewModel.getCasts(movieID: movieID)
+                async let imagesResult: () = viewModel.getImages(movieID: movieID)
                 
                 await castsResult
                 await imagesResult
@@ -165,7 +165,7 @@ struct MovieDetailView: View {
             
         }
         .toolbar {
-            FavoriteAnimationView(isLiked: $isFavorite, movieID: movie.id)
+            FavoriteAnimationView(isLiked: $isFavorite, movieID: movieID)
         }
         .toolbarRole(.editor)
     }
@@ -178,5 +178,5 @@ struct MovieDetailView: View {
 }
 
 #Preview {
-    MovieDetailView(movie: TopRatedMovie(id: 0, posterPath: "", title: "", voteAverage: 0, overview: ""), details: MovieDetails(genres: [], runtime: 0), movies: [])
+    MovieDetailView(movieID: 0, details: MovieDetails(id: 0, genres: [], overview: "", posterPath: "", runtime: 0, title: "", voteAverage: 0), movies: [])
 }

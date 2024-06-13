@@ -7,29 +7,30 @@
 
 import Foundation
 
-// MARK: - Top Rated Movies
-struct TopRatedMovies: Decodable {
-    let results: [TopRatedMovie]
+// MARK: - All Movies
+struct AllMovieResponse: Decodable {
+    let results: [MovieResponse]
 }
 
-struct TopRatedMovie: Decodable {
+struct MovieResponse: Decodable {
     let id: Int
-    let posterPath: String
-    let title: String
-    let voteAverage: Double
-    let overview: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id, title, overview
-        case posterPath = "poster_path"
-        case voteAverage = "vote_average"
-    }
 }
 
 // MARK: - Details
 struct MovieDetails: Decodable {
+    let id: Int?
     let genres: [Genre]?
+    let overview: String?
+    let posterPath: String?
     let runtime: Int?
+    let title: String?
+    let voteAverage: Double?
+
+    enum CodingKeys: String, CodingKey {
+        case id, overview, runtime, title, genres
+        case posterPath = "poster_path"
+        case voteAverage = "vote_average"
+    }
 }
 
 struct Genre: Decodable {
