@@ -13,6 +13,7 @@ struct MovieAppApp: App {
     var body: some Scene {
         WindowGroup {
             MovieTabView()
+                .modifier(ThemeViewModifier())
         }
         .modelContainer(for: Movie.self)
     }

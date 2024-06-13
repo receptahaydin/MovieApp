@@ -20,6 +20,7 @@ struct CastCrewView: View {
             .padding()
         }
         .navigationTitle("Cast & Crew")
+        .toolbarRole(.editor)
     }
 }
 

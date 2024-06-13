@@ -38,6 +38,7 @@ struct PhotosView: View {
             .padding()
         }
         .navigationTitle("Photos")
+        .toolbarRole(.editor)
     }
 }
 
