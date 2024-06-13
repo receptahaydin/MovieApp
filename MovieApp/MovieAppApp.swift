@@ -10,10 +10,16 @@ import SwiftData
 
 @main
 struct MovieAppApp: App {
+    @State private var showSplash = true
+    
     var body: some Scene {
         WindowGroup {
-            MovieTabView()
-                .modifier(ThemeViewModifier())
+            if showSplash {
+                SplashView(isLoading: $showSplash)
+            } else {
+                MovieTabView()
+                    .modifier(ThemeViewModifier())
+            }
         }
         .modelContainer(for: Movie.self)
     }
