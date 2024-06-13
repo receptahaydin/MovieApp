@@ -30,7 +30,7 @@ public extension API {
             case .images(let movieID):
                 await getRequest(path: "3/movie/\(movieID)/images")
             case .movieDetails(let movieID):
-                await getRequest(path: "3/movie/\(movieID)")
+                await getRequest(path: "3/movie/\(movieID)", language: true)
             case .releaseDates(let movieID):
                 await getRequest(path: "3/movie/\(movieID)/release_dates")
             }

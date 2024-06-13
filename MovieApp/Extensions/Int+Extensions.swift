@@ -12,6 +12,6 @@ extension Int {
         let hours = self / 60
         let minutes = self % 60
         
-        return "\(hours)hr \(minutes)m"
+        return "\(hours)\("hr".localized) \(minutes)\("m".localized)"
     }
 }

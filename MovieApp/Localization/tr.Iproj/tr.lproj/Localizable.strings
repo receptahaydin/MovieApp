@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  MovieApp
+
+  Created by Recep Taha Aydın on 13.06.2024.
+  
+*/
+
+// MARK: Tab View
+"movies" = "Filmler";
+"favorites" = "Favoriler";
+"profile" = "Profil";
+
+// MARK: Movies View
+"now_showing" = "Vizyondakiler";
+"coming_soon" = "Çok Yakında";
+
+// MARK: Movie Detail View
+"hr" = " saat";
+"m" = " dk";
+"synopsis" = "Özet";
+"show_more" = "Genişlet";
+"show_less" = "Daralt";
+"cast_crew" = "Oyuncular & Ekip";
+"view_all" = "Hepsini Göster";
+"photos" = "Fotoğraflar";
+
+// MARK: Profile View
+"welcome_text" = "Film Uygulamasına Hoş Geldiniz!";
+"dark_mode" = "Karanlık Mod";

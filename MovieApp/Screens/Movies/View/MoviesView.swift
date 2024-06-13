@@ -36,7 +36,7 @@ struct MoviesView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Text("Movies")
+                    Text("movies".localized)
                         .font(.title)
                 }
                 
@@ -87,8 +87,8 @@ struct MoviesView: View {
 private extension MoviesView {
     var segmentedPicker: some View {
         Picker("Movie Category", selection: $selectedIndex) {
-            Text("Now Showing").tag(0)
-            Text("Coming Soon").tag(1)
+            Text("now_showing".localized).tag(0)
+            Text("coming_soon".localized).tag(1)
         }
         .pickerStyle(.segmented)
         .colorMultiply(.movieBlue)

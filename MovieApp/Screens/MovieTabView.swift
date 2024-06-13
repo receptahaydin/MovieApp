@@ -11,13 +11,13 @@ struct MovieTabView: View {
     var body: some View {
         TabView {
             MoviesView()
-                .tabItem { Label("Movies", systemImage: "film") }
+                .tabItem { Label("movies".localized, systemImage: "film") }
             
             FavoritesView()
-                .tabItem { Label("Favorites", systemImage: "heart") }
+                .tabItem { Label("favorites".localized, systemImage: "heart") }
             
             ProfileView()
-                .tabItem { Label("Profile", systemImage: "person") }
+                .tabItem { Label("profile".localized, systemImage: "person") }
         }
         .accentColor(.movieBlue)
     }

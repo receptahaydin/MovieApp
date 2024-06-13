@@ -10,14 +10,16 @@ import Kingfisher
 
 struct MovieDetailView: View {
     var movies: [Movie]
+    let certification: String?
     var movieID: Int
     let details: MovieDetails?
     @StateObject var viewModel = MovieDetailViewModel()
     @State var lineLimit = true
     @State var isFavorite = false
     
-    init(movieID: Int, details: MovieDetails?, movies: [Movie]) {
+    init(movieID: Int, certification: String?, details: MovieDetails?, movies: [Movie]) {
         self.movieID = movieID
+        self.certification = certification
         self.details = details
         self.movies = movies
         _isFavorite = State(initialValue: movies.contains(where: { $0.id == movieID }))
@@ -55,9 +57,18 @@ struct MovieDetailView: View {
                             .font(.title2)
                             .fontWeight(.semibold)
                         
-                        Text(details?.runtime?.toHoursMinutes() ?? "")
-                            .font(.callout)
-                            .foregroundStyle(.secondary)
+                        HStack(alignment: .bottom, spacing: 4) {
+                            Text(details?.runtime?.toHoursMinutes() ?? "")
+                            
+                            if let certification = certification, !certification.isEmpty {
+                                Text("|")
+                                    .font(.system(size: 16))
+                                
+                                Text(certification)
+                            }
+                        }
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
                         
                         Text(genreNames(genre: details?.genres ?? []))
                             .font(.callout)
@@ -75,13 +86,14 @@ struct MovieDetailView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 15) {
-                        Text("Synopsis")
+                        Text("synopsis".localized)
                             .font(.headline)
                         
                         Text(details?.overview ?? "")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                             .lineLimit(lineLimit ? 4 : nil)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding()
                     
@@ -90,18 +102,18 @@ struct MovieDetailView: View {
                             lineLimit.toggle()
                         }
                     } label: {
-                        DetailViewButton(title: lineLimit ? "Show More" : "Show Less")
+                        DetailViewButton(title: lineLimit ? "show_more".localized : "show_less".localized)
                     }
                     
                     VStack(alignment: .leading, spacing: 15) {
                         HStack {
-                            Text("Cast & Crew")
+                            Text("cast_crew".localized)
                                 .font(.headline)
                             
                             Spacer()
                             
                             NavigationLink(destination: CastCrewView(casts: viewModel.cast)) {
-                                DetailViewButton(title: "View All")
+                                DetailViewButton(title: "view_all".localized)
                             }
                         }
                         
@@ -113,13 +125,13 @@ struct MovieDetailView: View {
                     
                     VStack {
                         HStack {
-                            Text("Photos")
+                            Text("photos".localized)
                                 .font(.headline)
                             
                             Spacer()
                             
                             NavigationLink(destination: PhotosView(images: viewModel.images)) {
-                                DetailViewButton(title: "View All")
+                                DetailViewButton(title: "view_all".localized)
                             }
                         }
                         .padding([.horizontal, .top])
@@ -178,5 +190,5 @@ struct MovieDetailView: View {
 }
 
 #Preview {
-    MovieDetailView(movieID: 0, details: MovieDetails(id: 0, genres: [], overview: "", posterPath: "", runtime: 0, title: "", voteAverage: 0), movies: [])
+    MovieDetailView(movieID: 0, certification: "", details: MovieDetails(id: 0, genres: [], overview: "", posterPath: "", runtime: 0, title: "", voteAverage: 0), movies: [])
 }

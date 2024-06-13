@@ -19,7 +19,7 @@ struct CastCrewView: View {
             }
             .padding()
         }
-        .navigationTitle("Cast & Crew")
+        .navigationTitle("Cast & Crew".localized)
         .toolbarRole(.editor)
     }
 }

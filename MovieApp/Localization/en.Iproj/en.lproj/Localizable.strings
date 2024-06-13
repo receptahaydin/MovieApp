@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  MovieApp
+
+  Created by Recep Taha Aydın on 13.06.2024.
+  
+*/
+
+// MARK: Tab View
+"movies" = "Movies";
+"favorites" = "Favorites";
+"profile" = "Profile";
+
+// MARK: Movies View
+"now_showing" = "Now Showing";
+"coming_soon" = "Coming Soon";
+
+// MARK: Movie Detail View
+"hr" = "hr";
+"m" = "m";
+"synopsis" = "Synopsis";
+"show_more" = "Show More";
+"cast_crew" = "Cast & Crew";
+"view_all" = "View All";
+"photos" = "Photos";
+
+// MARK: Profile View
+"welcome_text" = "Welcome to the Movie App!";
+"dark_mode" = "Dark Mode";

@@ -11,6 +11,9 @@
 		DC1E54F72C0FA9EF0016FEDB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC1E54F62C0FA9EF0016FEDB /* Colors.xcassets */; };
 		DC1E54F92C0FAB630016FEDB /* CastCrewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1E54F82C0FAB630016FEDB /* CastCrewCell.swift */; };
 		DC3A48892C1B430100D93F9B /* ThemeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A48882C1B430100D93F9B /* ThemeViewModifier.swift */; };
+		DC3A48912C1B4ADC00D93F9B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC3A48932C1B4ADC00D93F9B /* Localizable.strings */; };
+		DC3A48942C1B4AE100D93F9B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC3A48962C1B4AE100D93F9B /* Localizable.strings */; };
+		DC3A48982C1B4F3100D93F9B /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A48972C1B4F3100D93F9B /* String+Extensions.swift */; };
 		DC5F88412BFDDDA500C7657E /* MovieAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5F88402BFDDDA500C7657E /* MovieAppApp.swift */; };
 		DC5F88432BFDDDA500C7657E /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5F88422BFDDDA500C7657E /* MoviesView.swift */; };
 		DC5F88452BFDDDA600C7657E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC5F88442BFDDDA600C7657E /* Assets.xcassets */; };
@@ -69,6 +72,9 @@
 		DC1E54F62C0FA9EF0016FEDB /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		DC1E54F82C0FAB630016FEDB /* CastCrewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCrewCell.swift; sourceTree = "<group>"; };
 		DC3A48882C1B430100D93F9B /* ThemeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModifier.swift; sourceTree = "<group>"; };
+		DC3A48922C1B4ADC00D93F9B /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DC3A48952C1B4AE100D93F9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DC3A48972C1B4F3100D93F9B /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		DC5F883D2BFDDDA500C7657E /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5F88402BFDDDA500C7657E /* MovieAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppApp.swift; sourceTree = "<group>"; };
 		DC5F88422BFDDDA500C7657E /* MoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesView.swift; sourceTree = "<group>"; };
@@ -153,6 +159,31 @@
 			path = ThemeManager;
 			sourceTree = "<group>";
 		};
+		DC3A488A2C1B4A6A00D93F9B /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				DC3A488C2C1B4A7D00D93F9B /* tr.Iproj */,
+				DC3A488B2C1B4A7500D93F9B /* en.Iproj */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		DC3A488B2C1B4A7500D93F9B /* en.Iproj */ = {
+			isa = PBXGroup;
+			children = (
+				DC3A48962C1B4AE100D93F9B /* Localizable.strings */,
+			);
+			path = en.Iproj;
+			sourceTree = "<group>";
+		};
+		DC3A488C2C1B4A7D00D93F9B /* tr.Iproj */ = {
+			isa = PBXGroup;
+			children = (
+				DC3A48932C1B4ADC00D93F9B /* Localizable.strings */,
+			);
+			path = tr.Iproj;
+			sourceTree = "<group>";
+		};
 		DC5F88342BFDDDA500C7657E = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +208,7 @@
 		DC5F883F2BFDDDA500C7657E /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
+				DC3A488A2C1B4A6A00D93F9B /* Localization */,
 				DC3A48862C1B429B00D93F9B /* Modules */,
 				DC6C5D042BFDECDD00968B0B /* Networking */,
 				DC8D067D2C0EFCA600FA23EE /* Extensions */,
@@ -294,6 +326,7 @@
 			children = (
 				DC8D067E2C0EFCB400FA23EE /* Color+Extensions.swift */,
 				DC668EEF2C18944700CAB342 /* Int+Extensions.swift */,
+				DC3A48972C1B4F3100D93F9B /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -538,6 +571,7 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = DC5F88342BFDDDA500C7657E;
 			packageReferences = (
@@ -559,7 +593,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC3A48942C1B4AE100D93F9B /* Localizable.strings in Resources */,
 				DC1E54F72C0FA9EF0016FEDB /* Colors.xcassets in Resources */,
+				DC3A48912C1B4ADC00D93F9B /* Localizable.strings in Resources */,
 				DC5F88482BFDDDA600C7657E /* Preview Assets.xcassets in Resources */,
 				DC5F88452BFDDDA600C7657E /* Assets.xcassets in Resources */,
 			);
@@ -590,6 +626,7 @@
 				DC6C5D192BFDF32200968B0B /* RequestMethod.swift in Sources */,
 				DC1E54F52C0FA9620016FEDB /* DetailViewButton.swift in Sources */,
 				DC6C5D112BFDEFEF00968B0B /* Networkable+Extensions.swift in Sources */,
+				DC3A48982C1B4F3100D93F9B /* String+Extensions.swift in Sources */,
 				DC6C5D172BFDF03500968B0B /* URL+Extensions.swift in Sources */,
 				DC9686A82C012FD400D0D549 /* FavoritesView.swift in Sources */,
 				DC6C5D132BFDF00C00968B0B /* Bundle+Extensions.swift in Sources */,
@@ -651,6 +688,25 @@
 			targetProxy = DC5F88582BFDDDA600C7657E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DC3A48932C1B4ADC00D93F9B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC3A48922C1B4ADC00D93F9B /* tr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		DC3A48962C1B4AE100D93F9B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC3A48952C1B4AE100D93F9B /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DC5F885F2BFDDDA600C7657E /* Debug */ = {

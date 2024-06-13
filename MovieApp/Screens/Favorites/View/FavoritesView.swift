@@ -28,7 +28,7 @@ struct FavoritesView: View {
             .padding(.horizontal, 10)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Text("Favorites")
+                    Text("favorites".localized)
                         .font(.title)
                 }
             }

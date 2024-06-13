@@ -16,7 +16,7 @@ struct MovieCardView: View {
     let certification: String?
     
     var body: some View {
-        NavigationLink(destination: MovieDetailView(movieID: details?.id ?? 0, details: details, movies: movies)) {
+        NavigationLink(destination: MovieDetailView(movieID: details?.id ?? 0, certification: certification, details: details, movies: movies)) {
             VStack(alignment: .leading, spacing: 5) {
                 if let url = URL(string: "http://image.tmdb.org/t/p/w500\(details?.posterPath ?? "")") {
                     KFImage(url)

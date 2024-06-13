@@ -11,10 +11,19 @@ extension Networkable {
     func getRequest(
         queryItem: [String : String] = [:],
         path: String,
-        httpMethod: RequestMethod = .get
+        httpMethod: RequestMethod = .get,
+        language: Bool? = false
     ) async -> URLRequest {
         var url = API.prepareUrl(withPath: path)
-        url.append(queryItems: [.init(name: "api_key", value: Bundle.main.apiKey)])
+        var queryItems = queryItem
+        queryItems["api_key"] = Bundle.main.apiKey
+        
+        if language == true {
+            let languageCode = Locale.current.language.languageCode?.identifier ?? "en"
+            queryItems["language"] = languageCode
+        }
+        
+        url = url.adding(parameters: queryItems)
         let request = await prepareRequest(url: url,
                                            method: httpMethod,
                                            contentType: ContentType.json)

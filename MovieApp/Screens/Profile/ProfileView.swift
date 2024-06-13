@@ -10,8 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     
     @AppStorage("darkMode") var isDarkMode: Bool = false
-    @State private var selectedIndex = 0
-    
+
     var body: some View {
         VStack {
             ScrollView {
@@ -37,16 +36,15 @@ struct ProfileView: View {
                 }
                 .padding()
                 
-                Text("Welcome to Movie App!")
+                Text("welcome_text".localized)
                     .font(.title2)
-                    .fontWeight(.semibold)
                 
                 Spacer()
                     .frame(height: 100)
                 
                 VStack {
                     Toggle(isOn: $isDarkMode) {
-                        Text("Dark Mode")
+                        Text("dark_mode".localized)
                     }
                 }
                 .padding()
