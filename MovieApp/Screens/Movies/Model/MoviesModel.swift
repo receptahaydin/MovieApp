@@ -14,6 +14,7 @@ struct AllMovieResponse: Decodable {
 
 struct MovieResponse: Decodable {
     let id: Int
+    let title: String
 }
 
 // MARK: - Details
