@@ -11,6 +11,7 @@ import SwiftData
 struct MoviesView: View {
     @StateObject var viewModel = MoviesViewModel()
     @State private var selectedIndex = 0
+    @State private var searchText = ""
     
     let columns: [GridItem] = [GridItem(.flexible()),
                                GridItem(.flexible())]
@@ -21,7 +22,7 @@ struct MoviesView: View {
                 segmentedPicker
                 
                 LazyVGrid(columns: columns) {
-                    ForEach(viewModel.movies, id: \.id) { movie in
+                    ForEach(filteredMovies, id: \.id) { movie in
                         MovieCardView(details: viewModel.movieDetails[movie.id],
                                       certification: getCertification(for: viewModel.releaseDates[movie.id] ?? ReleaseDateResult(results: [])))
                         .task {
@@ -39,13 +40,20 @@ struct MoviesView: View {
                     Text("movies".localized)
                         .font(.title)
                 }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    Image(systemName: "magnifyingglass")
-                }
             }
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "search".localized)
         }
         .tint(.label)
+    }
+    
+    private var filteredMovies: [MovieResponse] {
+        if searchText.isEmpty {
+            return viewModel.movies
+        } else {
+            return viewModel.movies.filter {
+                viewModel.movieDetails[$0.id]?.title?.lowercased().contains(searchText.lowercased()) ?? false
+            }
+        }
     }
     
     private func getCertification(for results: ReleaseDateResult) -> String? {

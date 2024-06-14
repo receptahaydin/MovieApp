@@ -14,6 +14,7 @@
 // MARK: Movies View
 "now_showing" = "Vizyondakiler";
 "coming_soon" = "Çok Yakında";
+"search" = "Search";
 
 // MARK: Movie Detail View
 "hr" = " saat";
