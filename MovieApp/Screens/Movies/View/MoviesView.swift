@@ -51,7 +51,7 @@ struct MoviesView: View {
             return viewModel.movies
         } else {
             return viewModel.movies.filter {
-                $0.title.lowercased().contains(searchText.lowercased())
+                viewModel.movieDetails[$0.id]?.title?.lowercased().contains(searchText.lowercased()) ?? false
             }
         }
     }

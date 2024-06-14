@@ -37,7 +37,7 @@ struct PhotosView: View {
             }
             .padding()
         }
-        .navigationTitle("Photos".localized)
+        .navigationTitle("photos".localized)
         .toolbarRole(.editor)
     }
 }
