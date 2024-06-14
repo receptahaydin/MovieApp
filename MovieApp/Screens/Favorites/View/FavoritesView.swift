@@ -11,6 +11,7 @@ import SwiftData
 struct FavoritesView: View {
     @StateObject private var viewModel = FavoritesViewModel()
     @Query private var movies: [Movie]
+    @Binding var selectedTab: Int
     
     let columns: [GridItem] = [GridItem(.flexible()),
                                GridItem(.flexible())]
@@ -30,6 +31,23 @@ struct FavoritesView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Text("favorites".localized)
                         .font(.title)
+                }
+            }
+            .overlay {
+                if movies.isEmpty {
+                    ContentUnavailableView(label: {
+                        Label {
+                            Text("no_favorite".localized)
+                        } icon: {
+                            Image(systemName: "popcorn.fill")
+                                .foregroundStyle(.movieBlue)
+                        }
+                    }, description: {
+                        Text("start_adding".localized)
+                    }, actions: {
+                        Button("add_movie".localized) { selectedTab = 0 }
+                            .foregroundStyle(.movieBlue)
+                    })
                 }
             }
             .onAppear {
@@ -65,5 +83,5 @@ struct FavoritesView: View {
 }
 
 #Preview {
-    FavoritesView()
+    FavoritesView(selectedTab: .constant(0))
 }

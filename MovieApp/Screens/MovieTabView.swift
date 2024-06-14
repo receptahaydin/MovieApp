@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct MovieTabView: View {
+    @State private var selectedTab = 0
+
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             MoviesView()
                 .tabItem { Label("movies".localized, systemImage: "film") }
+                .tag(0)
             
-            FavoritesView()
+            FavoritesView(selectedTab: $selectedTab)
                 .tabItem { Label("favorites".localized, systemImage: "heart") }
+                .tag(1)
             
             ProfileView()
                 .tabItem { Label("profile".localized, systemImage: "person") }
+                .tag(2)
         }
         .accentColor(.movieBlue)
     }

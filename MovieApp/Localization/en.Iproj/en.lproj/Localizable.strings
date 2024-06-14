@@ -27,3 +27,8 @@
 // MARK: Profile View
 "welcome_text" = "Welcome to the Movie App!";
 "dark_mode" = "Dark Mode";
+
+// MARK: Favorite View
+"no_favorite" = "No Favorite Movies";
+"start_adding" = "Start adding movies to see your list.";
+"add_movie" = "Add Movie";

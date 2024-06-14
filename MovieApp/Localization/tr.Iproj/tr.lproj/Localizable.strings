@@ -28,3 +28,8 @@
 // MARK: Profile View
 "welcome_text" = "Film Uygulamasına Hoş Geldiniz!";
 "dark_mode" = "Karanlık Mod";
+
+// MARK: Favorite View
+"no_favorite" = "Favori Filminiz Yok";
+"start_adding" = "Listenizi görmek için film eklemeye başlayın.";
+"add_movie" = "Film Ekle";
