@@ -14,7 +14,7 @@
 // MARK: Movies View
 "now_showing" = "Now Showing";
 "coming_soon" = "Coming Soon";
-"searcg" = "Ara";
+"search" = "Search";
 
 // MARK: Movie Detail View
 "hr" = "hr";
